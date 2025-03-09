@@ -1,0 +1,29 @@
+{
+  "name": "tools",
+  "description": "tool calling helper library that allows you to create tools that can be used in multiple tool calling frameworks",
+  "module": "src/index.ts",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    "./*": "./dist/*"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*"
+      ]
+    }
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "bun-plugin-isolated-decl": "^0.1.9",
+    "oxc-transform": "^0.56.5"
+  },
+  "peerDependencies": {
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "@standard-schema/spec": "^1.0.0"
+  }
+}

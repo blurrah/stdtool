@@ -1,4 +1,4 @@
-import type { StandardSchemaV1 } from "@standard-schema/spec";
+import type { z } from "zod";
 import type { Tool } from "../types";
 
 /**
@@ -20,15 +20,13 @@ import type { Tool } from "../types";
  * server.tool(...mcp(myTool));
  * ```
  */
-export function mcp<
-  Params extends StandardSchemaV1 | undefined = undefined | StandardSchemaV1
->(
+export function mcp<Params extends z.ZodTypeAny>(
   input: Tool<Params>
 ): [
-  string,
-  string | undefined,
-  Params,
-  (parameters: Params) => Promise<unknown>
+  Tool<Params>["name"],
+  Tool<Params>["description"],
+  Tool<Params>["parameters"],
+  Tool<Params>["execute"]
 ] {
   return [input.name, input.description, input.parameters, input.execute];
 }

@@ -15,11 +15,15 @@
       ]
     }
   },
+  "scripts": {
+    "build": "bun ./build.ts"
+  },
   "devDependencies": {
     "@types/bun": "latest",
     "ai": "^4.1.54",
     "bun-plugin-isolated-decl": "^0.1.9",
-    "oxc-transform": "^0.56.5"
+    "oxc-transform": "^0.56.5",
+    "zod": "^3.24.2"
   },
   "peerDependencies": {
     "typescript": "^5.8.2"

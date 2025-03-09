@@ -1,10 +1,13 @@
-import type { StandardSchemaV1 } from "@standard-schema/spec";
+import type { z } from "zod";
 
-export interface Tool<
-  Params extends StandardSchemaV1 | undefined = undefined | StandardSchemaV1
-> {
+type Parameters = z.ZodTypeAny | undefined;
+
+export type InferParameters<Params extends Parameters> =
+  Params extends z.ZodTypeAny ? z.infer<Params> : never;
+
+export interface Tool<Params extends Parameters = Parameters> {
   name: string;
   description: string;
   parameters: Params;
-  execute: (parameters: Params) => Promise<unknown>;
+  execute: (parameters: InferParameters<Params>) => Promise<unknown>;
 }

@@ -1,4 +1,4 @@
-import type { StandardSchemaV1 } from "@standard-schema/spec";
+import type { z } from "zod";
 import type { Tool } from "./types";
 
 /**
@@ -6,7 +6,7 @@ import type { Tool } from "./types";
  * @param input Tool input
  * @returns
  */
-export function tool<Params extends StandardSchemaV1>(
+export function tool<Params extends z.ZodTypeAny>(
   input: Tool<Params>
 ): Tool<Params> {
   return input;

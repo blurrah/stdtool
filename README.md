@@ -1,21 +1,21 @@
-# tools
+# stdtool
 
-Tools is the easiest way to create reusable tools that can be output to be used by multiple tool calling frameworks such as AI SDK, MCP servers, Langchain.
+Stdtool is the easiest way to create reusable tools that can be output to be used by multiple tool calling frameworks such as AI SDK, MCP servers, Langchain.
 
 ## Install
 
 ```bash
 # npm
-npm i tools
+npm i stdtool
 
 # yarn
-yarn add tools
+yarn add stdtool
 
 # pnpm
-pnpm add tools
+pnpm add stdtool
 
 # bun
-bun add tools
+bun add stdtool
 ```
 
 ## Usage

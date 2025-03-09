@@ -1,19 +1,48 @@
 # tools
 
-Tools is a tool calling helper library that allows you to create tools that can be reused in multiple formats with adapters, such as:
-- Vercel AI SDK
-- MCP
+Tools is the easiest way to create reusable tools that can be output to be used by multiple tool calling frameworks such as AI SDK, MCP servers, Langchain.
 
-To install dependencies:
+## Install
 
 ```bash
-bun install
+# npm
+npm i tools
+
+# yarn
+yarn add tools
+
+# pnpm
+pnpm add tools
+
+# bun
+bun add tools
 ```
 
-To run:
+## Usage
 
-```bash
-bun run src/index.ts
+Create a reusable tool using the `tool()` function:
+
+```ts
+const myTool = tool({
+  name: "My tool",
+  description: "My custom tool",
+  parameters: z.object({}),
+  execute: async () => {
+    return "Hello world";
+  }
+})
 ```
 
-This project was created using `bun init` in bun v1.2.4. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+Then you can use any of the adapters to generate a specific tool for your usecase, e.g. MCP server:
+
+```ts
+import { mcp } from "tools/adapters/mcp";
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+
+const server = new McpServer({
+  name: "My server"
+});
+
+server.tool(...mcp(myTool))
+```
+

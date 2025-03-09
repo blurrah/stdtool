@@ -1,5 +1,6 @@
 {
   "name": "tools",
+  "version": "0.0.1",
   "description": "tool calling helper library that allows you to create tools that can be used in multiple tool calling frameworks",
   "module": "src/index.ts",
   "license": "MIT",
